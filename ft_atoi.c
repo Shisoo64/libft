@@ -12,25 +12,26 @@
 
 int	ft_atoi(char *str)
 {
-	int	rstr;
-	int	n;
 	int	i;
+	int	neg;
+	int	r;
 	
 	i = 0;
-	n = 1;
-	rstr = 0;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+	r = 0;
+	
+	if (str[i] == '-')
+		neg = -++i;
+	if (str[i] == '+')
 		i++;
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			n *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		rstr = rstr * 10 + (str[i] - '0');
-		i++;
-	}
-	return (rstr * n);
+	while (str[i] >= '0' && str[i] <= '9')	
+		r = r * 10 + (str[i++] - '0');
+	return (r * neg);
+}
+
+#include <stdlib.h>
+#include <stdio.h>
+int main()
+{
+	printf("%d\n", atoi("+123456789"));
+	printf("%d", ft_atoi("+123456789"));
 }
