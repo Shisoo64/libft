@@ -1,25 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/19 16:07:37 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/01/20 17:44:24 by rlaforge         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include"libft.h"
 
-int	ft_char_is_alpha(char c)
+int	ft_toupper(int c)
 {
-	if (c < 97 || c > 122)
-		return (0);
-	return (1);
-}
-
-char	ft_tolower(char c)
-{
-	if (ft_char_is_alpha(c))
+	if (c <= 'z' && c >= 'a')
 		c -= 32;
 	return (c);
 }

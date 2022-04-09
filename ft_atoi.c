@@ -1,37 +1,30 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/26 22:27:46 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/01/30 22:55:58 by rlaforge         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-int	ft_atoi(char *str)
+int	ft_atoi(const char *nptr)
 {
-	int	i;
+	int	nbr;
 	int	neg;
-	int	r;
-	
+	int	i;
+
 	i = 0;
-	r = 0;
-	
-	if (str[i] == '-')
-		neg = -++i;
-	if (str[i] == '+')
+	neg = 1;
+	nbr = 0;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
-	while (str[i] >= '0' && str[i] <= '9')	
-		r = r * 10 + (str[i++] - '0');
-	return (r * neg);
+	if (nptr[i] == '-')
+	{
+		i++;
+		neg = -neg;
+	}
+	else if (nptr[i] == '+')
+		i++;
+	while (nptr[i] && (nptr[i] >= '0' && nptr[i] <= '9'))
+		nbr = nbr * 10 + (nptr[i++] - '0');
+	return (nbr * neg);
 }
 
-#include <stdlib.h>
-#include <stdio.h>
-int main()
+int	main (void)
 {
-	printf("%d\n", atoi("+123456789"));
-	printf("%d", ft_atoi("+123456789"));
+	printf ("%d\n", ft_atoi("-1234"));
+	return (0);
 }

@@ -3,19 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bchabot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 12:12:04 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/01/24 21:59:13 by rlaforge         ###   ########.fr       */
+/*   Created: 2022/03/28 15:32:47 by bchabot           #+#    #+#             */
+/*   Updated: 2022/03/31 17:19:22 by bchabot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+#include"libft.h"
+
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+	while (s[i++])
+		;
+	return (--i);
 }
+
+/*
+int main(int argc, char **av)
+{
+	printf("%ld", ft_strlen(av[1]));
+	return (0);
+}
+*/
