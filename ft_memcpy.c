@@ -6,10 +6,10 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	char	*dst;
 	char	*sc;
 
-	i = 0;
+	i = -1;
 	dst = (char *)dest;
 	sc = (char *)src;
-	while (i < n)
-		dst[i] = sc[i++];
-	return (dest);
+	while (++i < n)
+		dst[i] = sc[i];
+	return (dst);
 }

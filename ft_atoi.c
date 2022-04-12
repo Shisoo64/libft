@@ -22,9 +22,3 @@ int	ft_atoi(const char *nptr)
 		nbr = nbr * 10 + (nptr[i++] - '0');
 	return (nbr * neg);
 }
-
-int	main (void)
-{
-	printf ("%d\n", ft_atoi("-1234"));
-	return (0);
-}

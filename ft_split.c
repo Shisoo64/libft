@@ -24,7 +24,7 @@ char **ft_split(char const *s, char c)
 		y++;
 		if (s[i] == c || !s[i + 1])
 		{
-			str[x++] = malloc(sizeof(char) * y);
+			str[x++] = malloc(sizeof(char) * y + 1);
 			if (!str[x - 1])
 				return (NULL);
 			y = 0;
@@ -45,7 +45,6 @@ char **ft_split(char const *s, char c)
 
 	return (str);
 }
-
 int	main (void)
 {
 	char **str;
