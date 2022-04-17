@@ -15,10 +15,8 @@ char	*ft_strcat(char *dest, char *src)
 	int	i;
 	int	n;
 
-	i = 0;
+	i = ft_strlen(dest);
 	n = 0;
-	while (dest[i])
-		i++;
 	while (src[n])
 		dest[i + n] = src[n++];
 	dest[i + n] = '\0';
