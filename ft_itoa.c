@@ -6,13 +6,13 @@
 /*   By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 20:42:44 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/04/15 20:47:46 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/04/18 15:52:55 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-void	truc(int n, int i[2])
+void	ft_count(int n, int i[2])
 {
 	int	x;
 
@@ -35,7 +35,7 @@ char	*ft_itoa(int n)
 
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	truc(n, i);
+	ft_count(n, i);
 	if (i[1])
 		n = -n;
 	tab = malloc(sizeof(char) * ((i[0] += i[1]) + 1));
@@ -51,15 +51,3 @@ char	*ft_itoa(int n)
 		tab[0] = '-';
 	return (tab);
 }
-/*
-int     main (void)
-{
-        printf ("%s\n", ft_itoa(0));
-        printf ("%s\n", ft_itoa(9));
-        printf ("%s\n", ft_itoa(-9));
-        printf ("%s\n", ft_itoa(10));
-        printf ("%s\n", ft_itoa(-10));
-        printf ("%s\n", ft_itoa(8124));
-        return (0);
-}
-*/

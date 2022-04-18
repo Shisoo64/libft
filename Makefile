@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/04/18 16:20:40 by rlaforge          #+#    #+#              #
+#    Updated: 2022/04/18 16:20:42 by rlaforge         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS =	ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -33,25 +45,44 @@ SRCS =	ft_isalpha.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c
 
+BONUS = ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c
+
 CC = gcc
+
 CFLAGS = -g -Wall -Wextra -Werror
+
 NAME = libft.a
+
 OBJS = $(SRCS:.c=.o)
+
+BONUS_OBJS = $(BONUS:.c=.o)
+
 CLIB = ar -rcs
 
 all : $(NAME)
 
 .c.o :
-		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME) : $(OBJS)
 	$(CLIB) $(NAME) $(OBJS)
+
+bonus : $(BONUS_OBJS)
+	$(CLIB) $(NAME) $(BONUS_OBJS)
 
 $(OBJS) :
 	$(CC) -c $(SRCS)
 
 clean :
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean : clean
 	rm -rf $(NAME)
