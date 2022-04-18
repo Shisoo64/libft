@@ -6,7 +6,7 @@
 #    By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/18 16:20:40 by rlaforge          #+#    #+#              #
-#    Updated: 2022/04/18 16:20:42 by rlaforge         ###   ########.fr        #
+#    Updated: 2022/04/18 17:35:01 by rlaforge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,9 +77,6 @@ $(NAME) : $(OBJS)
 
 bonus : $(BONUS_OBJS)
 	$(CLIB) $(NAME) $(BONUS_OBJS)
-
-$(OBJS) :
-	$(CC) -c $(SRCS)
 
 clean :
 	rm -f $(OBJS) $(BONUS_OBJS)
