@@ -6,7 +6,7 @@
 /*   By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:49:15 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/04/18 15:49:16 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:19:21 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
 
+	if (size >= 65536 || nmemb >= 65536)
+		return (NULL);
 	ptr = malloc(size * nmemb);
 	if (!ptr)
 		return (NULL);
