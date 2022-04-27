@@ -8,7 +8,7 @@ que vous pourrez utiliser pour vos prochains projets."
 
 ### This project use `Make`, here are the commands to compile the library :
 
-**1. Compiling the library**
+**1. 🗜️Compiling the library**
 
 For mandatory functions :
 
@@ -22,14 +22,13 @@ For bonus functions :
 $ make bonus
 ```
 
-**2. Cleaning all binary (.o) and executable files (.a) :**
+**2. 🧹Cleaning all binary (.o) and executable files (.a) :**
 
 ```shell
 $ make fclean
 ```
 
-**3. To use it in your code, simply include it's header :**
-
+**3. ✏️To use it in your code, simply include it's header :**
 
 ```C
 #include "libft.h"
