@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/18 16:20:40 by rlaforge          #+#    #+#              #
-#    Updated: 2022/04/18 17:35:01 by rlaforge         ###   ########.fr        #
+#    Updated: 2022/08/23 15:17:37 by rlaforge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,9 +43,8 @@ SRCS =	ft_isalpha.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
-
-BONUS = ft_lstnew.c \
+		ft_putnbr_fd.c \
+		ft_lstnew.c \
 		ft_lstadd_front.c \
 		ft_lstsize.c \
 		ft_lstlast.c \
@@ -53,7 +52,11 @@ BONUS = ft_lstnew.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
-		ft_lstmap.c
+		ft_lstmap.c \
+		get_next_line_utils.c \
+		get_next_line.c \
+		ft_printf.c \
+		ft_printf_utils.c
 
 CC = gcc
 
@@ -62,8 +65,6 @@ CFLAGS = -g -Wall -Wextra -Werror
 NAME = libft.a
 
 OBJS = $(SRCS:.c=.o)
-
-BONUS_OBJS = $(BONUS:.c=.o)
 
 CLIB = ar -rcs
 
@@ -75,11 +76,8 @@ all : $(NAME)
 $(NAME) : $(OBJS)
 	$(CLIB) $(NAME) $(OBJS)
 
-bonus : $(BONUS_OBJS)
-	$(CLIB) $(NAME) $(BONUS_OBJS)
-
 clean :
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean : clean
 	rm -rf $(NAME)
