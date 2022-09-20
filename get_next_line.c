@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 15:33:26 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/06/13 15:58:34 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:34:02 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-int	ft_has_n(char *s, int param)
+int	ft_n(char *s, int param)
 {
 	int	i;
 
@@ -41,7 +41,7 @@ char	*ft_read(char *str, int fd)
 	if (!buff)
 		return (NULL);
 	*buff = 0;
-	while (!ft_has_n(str, 1) && i)
+	while (!ft_n(str, 1) && i)
 	{
 		i = read(fd, buff, BUFFER_SIZE);
 		buff[i] = '\0';
@@ -71,7 +71,7 @@ char	*get_next_line(int fd)
 	str = ft_gnl_strjoin(str, save);
 	free(save);
 	str = ft_read(str, fd);
-	save = ft_gnl_substr(str, ft_has_n(str, 0), ft_strlen(str) - ft_has_n(str, 0));
-	line = ft_gnl_substr(str, 0, ft_has_n(str, 0));
+	save = ft_gnl_substr(str, ft_n(str, 0), ft_strlen(str) - ft_n(str, 0));
+	line = ft_gnl_substr(str, 0, ft_n(str, 0));
 	return (free(str), line);
 }

@@ -6,7 +6,7 @@
 /*   By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 16:20:10 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/08/23 15:54:26 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/09/20 13:34:43 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,13 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
-char    *get_next_line(int fd);
-char    *ft_read(char *str, int fd);
-char    *ft_gnl_substr(char *s, unsigned int start, size_t len);
+char	*get_next_line(int fd);
+char	*ft_read(char *str, int fd);
+char	*ft_gnl_substr(char *s, unsigned int start, size_t len);
 char	*ft_gnl_strjoin(char *s1, char *s2);
-int     ft_has_n(char *s, int param);
-int     ft_gnl_strlcat(char *dst, char *src, size_t size);
-int     ft_gnl_strlcpy(char *dst, char *src, size_t size);
+int		ft_has_n(char *s, int param);
+int		ft_gnl_strlcat(char *dst, char *src, size_t size);
+int		ft_gnl_strlcpy(char *dst, char *src, size_t size);
 int		ft_printf(const char *str, ...);
 int		ft_putnbr_base(long long nb, char *base);
 int		ft_putnbr_p(unsigned long long nb);
