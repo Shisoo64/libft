@@ -6,7 +6,7 @@
 /*   By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:30:02 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/10/19 17:08:56 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/10/19 18:09:13 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_pf_puthex(unsigned long long nb)
 
 	len = 0;
 	if (nb <= 15)
-		len += ft_putchar(base[nb]);
+		len += write(1, &base[nb], 1);
 	if (nb > 15)
 	{
 		len += ft_pf_puthex(nb / 16);
@@ -28,7 +28,7 @@ static int	ft_pf_puthex(unsigned long long nb)
 	return (len);
 }
 
-int	ft_putptr(unsigned long long ptr)
+int	ft_pf_putptr(unsigned long long ptr)
 {
 	int	len;
 
