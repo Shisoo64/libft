@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 15:49:15 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/04/18 18:19:21 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:00:59 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	ptr = malloc(size * nmemb);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, nmemb * size);
+	ft_memset(ptr, 0, nmemb * size);
 	return (ptr);
 }

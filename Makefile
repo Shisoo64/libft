@@ -75,6 +75,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJS)
 	$(CLIB) $(NAME) $(OBJS)
+	@echo "\033[0;32m📚 LibFT compiled!\033[0m"
 
 clean :
 	rm -f $(OBJS)
@@ -85,3 +86,4 @@ fclean : clean
 re : fclean all
 
 .PHONY : all re clean fclean
+.SILENT :

@@ -6,17 +6,15 @@
 /*   By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 16:20:10 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/09/20 13:34:43 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/10/19 17:55:07 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include <string.h>
 # include <unistd.h>
 # include <stdarg.h>
 
@@ -38,6 +36,7 @@ void	*ft_memset(void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 void	*ft_memmove(void *dest, const void *src, size_t n);
+char	*ft_strcpy(char *dest, char *src);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_toupper(int c);
@@ -60,7 +59,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 int		ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);
-int		ft_putstr(char *s);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
@@ -73,16 +71,17 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+// Get_Next_Line
 char	*get_next_line(int fd);
-char	*ft_read(char *str, int fd);
 char	*ft_gnl_substr(char *s, unsigned int start, size_t len);
 char	*ft_gnl_strjoin(char *s1, char *s2);
-int		ft_has_n(char *s, int param);
 int		ft_gnl_strlcat(char *dst, char *src, size_t size);
 int		ft_gnl_strlcpy(char *dst, char *src, size_t size);
+
+// PrintF
 int		ft_printf(const char *str, ...);
-int		ft_putnbr_base(long long nb, char *base);
-int		ft_putnbr_p(unsigned long long nb);
-int		ft_putptr(unsigned long long ptr);
+int		ft_pf_putptr(unsigned long long ptr);
+int		ft_pf_putstr(const char *str);
 
 #endif

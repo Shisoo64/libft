@@ -6,16 +6,11 @@
 /*   By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:46:06 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/08/23 15:55:41 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/10/19 17:09:07 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-int	ft_putchar(char c)
-{
-	return (write(1, &c, 1));
-}
 
 int	ft_putnbr_base(long long nb, char *base)
 {
@@ -27,10 +22,10 @@ int	ft_putnbr_base(long long nb, char *base)
 	if (nb < 0)
 	{
 		nb = -nb;
-		len += ft_putchar('-');
+		len += write(1, "-", 1);
 	}
 	if (nb <= baselen - 1)
-		len += ft_putchar(base[nb]);
+		len += write(1, &base[nb], 1);
 	if (nb > baselen - 1)
 	{
 		len += ft_putnbr_base(nb / baselen, base);
@@ -39,17 +34,29 @@ int	ft_putnbr_base(long long nb, char *base)
 	return (len);
 }
 
+int	ft_pf_putstr(const char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (ft_pf_putstr("(null)"));
+	while (str[i] != '\0' && str)
+		i += write(1, &str[i], 1);
+	return (i);
+}
+
 int	ft_params(char format, va_list args)
 {
 	int	len;
 
 	len = 0;
 	if (format == 'c')
-		len += ft_putchar((char)va_arg(args, int));
+		len += write(1, va_arg(args, char *), 1);
 	if (format == 's')
-		len += ft_putstr(va_arg(args, char *));
+		len += ft_pf_putstr(va_arg(args, char *));
 	if (format == 'p')
-		len += ft_putptr(va_arg(args, unsigned long long));
+		len += ft_pf_putptr(va_arg(args, unsigned long long));
 	if (format == 'i')
 		len += ft_putnbr_base(va_arg(args, int), "0123456789");
 	if (format == 'd')
@@ -61,7 +68,7 @@ int	ft_params(char format, va_list args)
 	if (format == 'X')
 		len += ft_putnbr_base(va_arg(args, unsigned int), "0123456789ABCDEF");
 	if (format == '%')
-		len += ft_putchar('%');
+		len += write(1, "%", 1);
 	return (len);
 }
 
@@ -77,7 +84,7 @@ int	ft_printf(const char *str, ...)
 	while (str[++i])
 	{
 		if (str[i] != '%')
-			len += ft_putchar(str[i]);
+			len += write(1, &str[i], 1);
 		else
 			len += ft_params(str[++i], args);
 	}

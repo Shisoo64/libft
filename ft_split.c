@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rlaforge <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 17:30:04 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/04/15 20:11:39 by rlaforge         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:23:52 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,28 +66,3 @@ char	**ft_split(char const *s, char c)
 	tab[j] = NULL;
 	return (tab);
 }
-
-/*
-int	main (void)
-{
-	char **str;
-	int	i;
-
-	i = 0; 
-	//str = ft_split("salut les gars ca va", ' ');
-	str = ft_split(" ", 'z');
-	while (str[i])
-	{
-		printf ("%s\n", str[i]);
-		i++;
-	}
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
-	return (0);
-}
-*/
