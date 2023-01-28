@@ -6,7 +6,7 @@
 #    By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/18 16:20:40 by rlaforge          #+#    #+#              #
-#    Updated: 2022/08/23 15:17:37 by rlaforge         ###   ########.fr        #
+#    Updated: 2023/01/28 18:03:15 by rlaforge         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,4 +86,3 @@ fclean : clean
 re : fclean all
 
 .PHONY : all re clean fclean
-.SILENT :
