@@ -6,7 +6,7 @@
 /*   By: rlaforge <rlaforge@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/18 16:01:11 by rlaforge          #+#    #+#             */
-/*   Updated: 2022/10/19 18:06:45 by rlaforge         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:49:36 by rlaforge         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ char	*ft_strdup(const char *s)
 	char	*dest;
 
 	dest = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!dest)
+		return (NULL);
 	ft_strcpy(dest, (char *)s);
 	return (dest);
 }
